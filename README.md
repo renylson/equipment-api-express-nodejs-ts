@@ -1,5 +1,7 @@
 # 🌐 Equipment API
 
+![Capa](./capa.png)
+
 API REST para gerenciar equipamentos de rede (roteadores, switches e afins), construída com **Node.js**, **Express** e **TypeScript**.
 
 Em resumo: é uma API CRUD onde você cadastra, consulta, atualiza e remove equipamentos de rede (nome, fabricante, modelo, IP, tipo de conexão, credenciais de acesso) através de requisições HTTP.
