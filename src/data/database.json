@@ -1,0 +1,67 @@
+[
+  {
+    "name": "NE8000",
+    "manufacturer": "Huawei",
+    "model": "NE8000 M4",
+    "ip": "10.0.0.2",
+    "connectionType": "ssh",
+    "port": 22,
+    "login": "admin",
+    "password": "admin123",
+    "id": 1,
+    "createdAt": "2026-08-23T00:31:51.468Z",
+    "updatedAt": "2026-08-23T00:31:51.468Z"
+  },
+  {
+    "name": "S6730",
+    "manufacturer": "Huawei",
+    "model": "S6730-H24X6C",
+    "ip": "10.0.0.3",
+    "connectionType": "ssh",
+    "port": 22,
+    "login": "admin",
+    "password": "admin123",
+    "id": 2,
+    "createdAt": "2026-08-23T00:31:56.938Z",
+    "updatedAt": "2026-08-23T00:31:56.938Z"
+  },
+  {
+    "name": "ASR-1001-X",
+    "manufacturer": "Cisco",
+    "model": "ASR1001-X",
+    "ip": "10.0.0.4",
+    "connectionType": "ssh",
+    "port": 22,
+    "login": "admin",
+    "password": "admin123",
+    "id": 3,
+    "createdAt": "2026-08-23T00:32:00.511Z",
+    "updatedAt": "2026-08-23T00:32:00.511Z"
+  },
+  {
+    "name": "CCR-1036",
+    "manufacturer": "MikroTik",
+    "model": "CCR1036-8G-2S+",
+    "ip": "10.0.0.5",
+    "connectionType": "web",
+    "port": 443,
+    "login": "admin",
+    "password": "admin123",
+    "id": 4,
+    "createdAt": "2026-08-23T00:32:03.023Z",
+    "updatedAt": "2026-08-23T00:32:03.023Z"
+  },
+  {
+    "name": "7250-IXR",
+    "manufacturer": "Nokia",
+    "model": "7250 IXR-6",
+    "ip": "10.0.0.6",
+    "connectionType": "ssh",
+    "port": 22,
+    "login": "admin",
+    "password": "admin123",
+    "id": 5,
+    "createdAt": "2026-08-23T00:32:06.224Z",
+    "updatedAt": "2026-08-23T00:32:06.224Z"
+  }
+]
