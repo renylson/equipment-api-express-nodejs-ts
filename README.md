@@ -15,6 +15,7 @@ Este projeto foi desenvolvido para aplicar na prática os conhecimentos adquirid
 - Persistência em arquivo `.json`, sem banco de dados externo
 - [tsx](https://github.com/privatenumber/tsx) para execução direta de TypeScript em desenvolvimento
 - [tsup](https://tsup.egoist.dev/) para build de produção (ESM)
+- [Jest](https://jestjs.io/) + [ts-jest](https://kulshekhar.github.io/ts-jest/) para testes unitários
 
 ## 🏗️ Arquitetura
 
@@ -94,7 +95,7 @@ flowchart TD
 
 ```bash
 # Clone o repositório
-git clone https://github.com/Renylson/equipment-api-express-nodejs-ts.git
+git clone https://github.com/renylson/equipment-api-express-nodejs-ts.git
 
 # Acesse a pasta do projeto
 cd equipment-api-express-nodejs-ts
@@ -120,6 +121,21 @@ npm start
 ```
 
 O servidor sobe em `http://localhost:3000` por padrão (configurável via `.env`, veja `.env.example`).
+
+## 🧪 Testes
+
+O projeto conta com uma suíte de testes unitários cobrindo todas as camadas (utils, repository, service e controller), usando mocks para isolar cada camada das suas dependências (arquivo em disco, módulos internos, `req`/`res` do Express).
+
+```bash
+npm test
+```
+
+| Camada | O que é testado |
+| - | - |
+| **Utils** | Funções puras: validação de IPv4, geração de próximo id, timestamp, respostas HTTP padronizadas |
+| **Repository** | Leitura/escrita simuladas (`fs/promises` mockado): geração de id sem colisão, merge parcial no update preservando `id`/`createdAt` |
+| **Service** | Regras de negócio com o repository mockado: validações de body e IPv4, atualização parcial sem quebrar quando o `ip` não é enviado |
+| **Controller** | Tradução HTTP com o service mockado: rejeição de `id` não numérico antes mesmo de chamar o service |
 
 ## 📖 Modelo de dados
 
@@ -274,22 +290,30 @@ equipment-api-express-nodejs-ts/
 │   ├── routes/
 │   │   └── routes.ts
 │   ├── controllers/
-│   │   └── device-controller.ts
+│   │   ├── device-controller.ts
+│   │   └── device-controller.test.ts
 │   ├── services/
-│   │   └── device-service.ts
+│   │   ├── device-service.ts
+│   │   └── device-service.test.ts
 │   ├── repositories/
-│   │   └── device-repository.ts
+│   │   ├── device-repository.ts
+│   │   └── device-repository.test.ts
 │   ├── models/
 │   │   ├── device-model.ts
 │   │   └── http-response-model.ts
 │   ├── utils/
 │   │   ├── http-statuscode-response.ts
+│   │   ├── http-statuscode-response.test.ts
 │   │   ├── ipv4-valid.ts
+│   │   ├── ipv4-valid.test.ts
 │   │   ├── next-id.ts
-│   │   └── timestamp.ts
+│   │   ├── next-id.test.ts
+│   │   ├── timestamp.ts
+│   │   └── timestamp.test.ts
 │   └── data/
 │       └── database.json
 ├── .env.example
+├── jest.config.js
 ├── tsconfig.json
 ├── tsup.config.ts
 ├── package.json
