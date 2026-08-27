@@ -129,7 +129,11 @@ O servidor sobe em `http://localhost:3000` por padrão (configurável via `.env`
 O projeto conta com uma suíte de testes unitários cobrindo todas as camadas (utils, repository, service e controller), usando mocks para isolar cada camada das suas dependências (arquivo em disco, módulos internos, `req`/`res` do Express).
 
 ```bash
+# Rodar a suíte de testes
 npm test
+
+# Rodar com relatório de cobertura
+npm run test:coverage
 ```
 
 | Camada | O que é testado |
@@ -138,6 +142,15 @@ npm test
 | **Repository** | Leitura/escrita simuladas (`fs/promises` mockado): geração de id sem colisão, merge parcial no update preservando `id`/`createdAt` |
 | **Service** | Regras de negócio com o repository mockado: validações de body e IPv4, atualização parcial sem quebrar quando o `ip` não é enviado |
 | **Controller** | Tradução HTTP com o service mockado: rejeição de `id` não numérico antes mesmo de chamar o service |
+
+Resultado atual (`npm run test:coverage`):
+
+| Métrica | Cobertura |
+| - | - |
+| Statements | 100% |
+| Branches | 100% |
+| Functions | 100% |
+| Lines | 100% |
 
 ## 📖 Modelo de dados
 
