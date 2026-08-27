@@ -15,7 +15,7 @@
     "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
   },
   "engines": {
-    "node": ">=20.6"
+    "node": ">=24.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
